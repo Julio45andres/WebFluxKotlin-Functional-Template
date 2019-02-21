@@ -17,7 +17,9 @@ A project template for *Kotlin Spring WebFlux*. The template features automatic 
 New:
 * With beans and router separation
 
-Original repo: https://github.com/cdimascio/kotlin-swagger-spring-functional-template/blob/master/src/main/kotlin/functional/Application.kt \
+Original repos: 
+* https://github.com/cdimascio/kotlin-swagger-spring-functional-template/blob/master/src/main/kotlin/functional/Application.kt 
+* https://github.com/hantsy/spring-webflux-kotlin-sample
 
 Request validation and interactive documentation are based on an OpenApi 3.0 or Swagger v2 API specification. The specification is located at `main/resources/static/api.yaml`.
 
@@ -25,17 +27,27 @@ Request validation and interactive documentation are based on an OpenApi 3.0 or 
 
 Clone this repo
 
-## Build
-
-```shell
-./gradlew build
-```
-
 ## Run
 
-```shell
-./gradlew run
-```
+1. Get the source codes, and import it into your favorite IDE.
+
+       git clone https://github.com/Julio45andres/WebFluxKotlin-Functional-Template
+
+2. Run Mongodb. A `docker-compose.yml` is provided in the root folder.
+
+        docker-compose up mongodb
+
+3. Run `Application.kt` in IDE directly. 
+
+   Or open terminal and follow the steps.
+   * Switch to the root directory of this project
+   * Run command `gradlew build` to build the project
+   * When it is done, you will find there is a `XXX-all.jar` in the *build/lib* folder.
+   * Execute `java -jar XXX-all.jar` to start the application.
+
+## Contribute 
+
+Welcome to contribute!
 
 
 ## Lint
