@@ -14,6 +14,10 @@ A project template for *Kotlin Spring WebFlux*. The template features automatic 
 * Environment based config via [java-dotenv](https://github.com/cdimascio/java-dotenv)
 * Interactive API documentation via [Swagger UI](https://swagger.io/swagger-ui/)
 * Automatic linting via [ktlint](ktlint.github.io)
+New:
+* With beans and router separation
+
+Original repo: https://github.com/cdimascio/kotlin-swagger-spring-functional-template/blob/master/src/main/kotlin/functional/Application.kt \
 
 Request validation and interactive documentation are based on an OpenApi 3.0 or Swagger v2 API specification. The specification is located at `main/resources/static/api.yaml`.
 

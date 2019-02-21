@@ -1,7 +1,10 @@
 package functional
 
-import functional.common.beans
+import functional.common.dbBeans
+import functional.common.routerBeans
 import functional.common.dotenv
+import functional.pets.petBeans
+import functional.users.userBeans
 import org.springframework.context.support.GenericApplicationContext
 import org.springframework.http.server.reactive.HttpHandler
 import org.springframework.http.server.reactive.ReactorHttpHandlerAdapter
@@ -32,7 +35,8 @@ class Application(port: Int = dotenv["PORT"]?.toInt() ?: 8080) {
 
     init {
         val context = GenericApplicationContext().apply {
-            beans().initialize(this)
+            listOf(dbBeans(), routerBeans(), petBeans(), userBeans())
+                .map { it.initialize(this) }
             refresh()
         }
         httpHandler = WebHttpHandlerBuilder.applicationContext(context).build()

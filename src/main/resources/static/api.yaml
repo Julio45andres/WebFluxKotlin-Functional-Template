@@ -13,6 +13,14 @@ consumes:
 produces:
 - application/json
 paths:
+  /users/uppercase:
+    get:
+      tags:
+        - UsersUpperCase
+      description: Get uppercased users
+      responses:
+        '200':
+          description: Return uppercased users
   /users:
     get:
       tags:
@@ -35,6 +43,28 @@ paths:
       responses:
         '200':
           description: Echo the request inputs
+  /pets:
+    get:
+      tags:
+        - Pets
+      description: Get harcoded pets
+      responses:
+        '200':
+          description: Return the pets
+    post:
+      tags:
+        - Pets
+      description: Echo back the pet specified in the request
+      parameters:
+      - name: pet
+        description: The pet
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/Pet'
+      responses:
+        '200':
+          description: Echo the request inputs
 definitions:
   User:
     required:
@@ -48,3 +78,15 @@ definitions:
     example:
       firstname: carmine
       lastname: d
+  Pet:
+    required:
+      - name
+      - species
+    properties:
+      name:
+        type: string
+      species:
+        type: string
+    example:
+      name: luna
+      species: cat

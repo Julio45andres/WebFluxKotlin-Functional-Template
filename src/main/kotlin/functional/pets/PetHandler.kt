@@ -1,4 +1,4 @@
-package functional.users
+package functional.pets
 
 import functional.common.validate
 import org.springframework.web.reactive.function.server.ServerRequest
@@ -7,21 +7,17 @@ import org.springframework.web.reactive.function.server.ServerResponse.ok
 import org.springframework.web.reactive.function.server.body
 import reactor.core.publisher.Mono
 
-class UserHandler(val userService: UserService) {
+
+class PetHandler(val petService: PetService) {
 
     fun findAll(req: ServerRequest): Mono<ServerResponse> = validate
         .request(req) {
-            ok().body(userService.findAll())
+            ok().body(petService.findAll())
         }
 
-    fun create(req: ServerRequest) = validate
+    fun create(req: ServerRequest): Mono<ServerResponse> = validate
         .request(req)
-        .withBody(User::class.java) { user ->
-            ok().body(userService.create(user))
-        }
-
-    fun asUpperCase(req: ServerRequest): Mono<ServerResponse> = validate
-        .request(req) {
-            ok().body(userService.asUpperCase())
+        .withBody(Pet::class.java) { pet ->
+            ok().body(petService.save(pet))
         }
 }

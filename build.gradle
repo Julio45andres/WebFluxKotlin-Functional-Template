@@ -92,6 +92,10 @@ dependencies {
     implementation("org.slf4j:slf4j-api")
     implementation("ch.qos.logback:logback-classic")
 
+    //spring data mongodb reactive
+    implementation "org.springframework.data:spring-data-mongodb"
+    implementation "org.mongodb:mongodb-driver-reactivestreams"
+
     runtime files('src/main/resources')
 
     testImplementation('io.projectreactor:reactor-test')
